@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 url = "https://stackoverflow.com/questions"
-respuesta = requests.get(url)
+respuesta = requests.get(url, timeout=10)
 texto = respuesta.text
 soup = BeautifulSoup(texto, "html.parser")
 
