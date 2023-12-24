@@ -6,9 +6,9 @@ import os
 # print(os.environ.get("gh_pass"))
 # print(os.environ.get("gh_user"))
 
-options = webdriver.FirefoxOptions()
-options.set_preference("marionette", True)
-browser = webdriver.Firefox(options=options)
+# options = webdriver.FirefoxOptions()
+# options.set_preference("marionette", True)
+browser = webdriver.Firefox()
 browser.implicitly_wait(10)
 browser.get("https://www.github.com")
 link = browser.find_element(By.LINK_TEXT, "Sign in")
@@ -31,4 +31,6 @@ profile = browser.find_element(
     By.CLASS_NAME, "p-nickname.vcard-username.d-block")
 label = profile.get_attribute("innerHTML")
 
-assert "facundoenriquez2" in label
+assert "facundoenriquez" in label
+
+browser.quit()
